@@ -1,7 +1,7 @@
 import React from 'react'
 import P1 from "../utils/img/P1.jpg"
-import P2 from "../utils/img/p2.jpg"
-import P3 from "../utils/img/p8.jpg"
+import P2 from "../utils/img/P2.jpg"
+import P3 from "../utils/img/P8.jpg"
 import Image from 'next/image'
 
 const Testimonial = () => {

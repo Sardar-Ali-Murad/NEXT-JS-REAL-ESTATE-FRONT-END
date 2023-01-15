@@ -9,3 +9,18 @@ git push -u origin main
 
 
 This is another change
+
+
+The Reason why the npm istall is not working
+
+
+
+So I have to use npm i react-google-login --force to install the google login component into my local machine, I used ci/cd on Heroku connected my GitHub but it is refusing to install the react-google-login component on Heroku. Please how can I use the npm I react-google-login --force on Heroku? This is the error I'm getting below on my deploy.
+Solution
+
+
+You can put either of these options in your repository's .npmrc:
+
+force=true
+legacy-peer-deps=true
+
