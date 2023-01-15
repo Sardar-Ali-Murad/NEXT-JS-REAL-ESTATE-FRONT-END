@@ -1,0 +1,11 @@
+Commands
+echo "# REAL-ESTATE-FRONT-END-PART-2" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Sardar-Ali-Murad/REAL-ESTATE-FRONT-END-PART-2.git
+git push -u origin main
+
+
+This is another change
