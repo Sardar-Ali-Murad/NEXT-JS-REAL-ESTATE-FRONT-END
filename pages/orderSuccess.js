@@ -5,7 +5,7 @@ const orderSuccess = () => {
       React.useEffect(()=>{
        const start=async ()=>{
         try {
-            await axios.delete("https://al-kabeer-real.onrender.com/api/v1/Orders/deleteAll",{withCredentials:true})
+            await axios.delete("https://al-kabeer-real.onrender.com/api/v1/Orders/deleteAll")
         } catch (error) {
             console.log(error)
         }
