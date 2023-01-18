@@ -1263,3 +1263,11 @@ color: white;
   color: red;
 }
 
+.nav-main{
+  position: sticky;
+top: 0px;
+left: 0px;
+box-shadow: 2px 2px 2px aliceblue;
+background-color: brown;
+}
+

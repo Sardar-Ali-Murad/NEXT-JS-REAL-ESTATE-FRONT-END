@@ -36,7 +36,7 @@ const Navbar = () => {
   return (
     <div>
    {/* Big Screen Nav Start*/}
-    <div className='nav-main'>
+    <div className='nav-main text-white'>
         <div className='nav-headers'>
              {/* <h3 className='mt-[15px]'>AL-Kabeer Estate</h3> */}
              <Image src={Logo} height={60} width={60} alt="Image"/>
@@ -45,9 +45,9 @@ const Navbar = () => {
     <div className='big-screen-nav'>
        <nav>
         <ul>
-            <li> <Link href="/" className='link-font'>Home</Link></li>
-            <li> <Link href="/about"  className='link-font'>About</Link></li>
-            <li> <Link href="/Properties"  className='link-font'>Property</Link></li>
+            <li> <Link href="/" className='label fancy-link'>Home</Link></li>
+            <li> <Link href="/about"  className='label fancy-link'>About</Link></li>
+            <li> <Link href="/Properties"  className='label fancy-link'>Property</Link></li>
         </ul>
        </nav>
     </div> 
@@ -58,12 +58,12 @@ const Navbar = () => {
             <div className='nav-flex cart-rel'>
                 {/* <h7>Cart</h7> */}
                  <BsCart className='nav-icon'/>
-                 <h2 className='cart-no'>{num}</h2>
+                 <h2 className='cart-no text-white'>{num}</h2>
             </div>
             </Link>
             <div className='nav-flex gap-[30px]' onClick={loginHandler} style={{cursor:"pointer"}}>
                  <BsFillPersonPlusFill className='nav-icon'/>
-                <h5 className='mt-[10px] link-font'>{user===null?"Login":"Dashboard"}</h5>
+                <h5 className='mt-[10px] label'>{user===null?"Login":"Dashboard"}</h5>
             </div>
         </div> 
 
