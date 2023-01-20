@@ -12,7 +12,7 @@ import {HiBuildingLibrary}  from "react-icons/hi2"
   
 const MianFooter = () => {
   return (
-    <div className='bg-[#e86f6f] text-white'>
+    <div className='bg-[#e86f6f] text-white mt-[100px]'>
 
     <div className='div-center-80 grid-22 py-[40px]'>
         

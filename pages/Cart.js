@@ -15,7 +15,7 @@ const Cart = () => {
 
   if(props.UserOrders.length===0){
     return(
-         <div className='div-perfect-center ' style={{paddingBottom:"200px",zIndex:"100", 
+         <div className='div-perfect-center' style={{paddingBottom:"200px",zIndex:"2", 
           padding:"20px",borderRadius:"20px",backdropFilter:"blur(20px)"}}>
         <h4 className='text-white' style={{color:"black"}}>Your Cart Is Empty </h4>
         <Link href="/Properties" style={{color:"black"}} className="text-center">

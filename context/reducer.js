@@ -35,7 +35,8 @@ import {
   RESET_PASSWORD_ERROR,
   RESET_PASSWORD_SUCCESS,
   STRIP_LOADING_BEGIN,
-  STRIP_LOADING_END
+  STRIP_LOADING_END,
+  DELETE_ORDERS_APP_CONTEXT
 } from './actions'
 const reducer = (state, action) => {
   
@@ -90,14 +91,15 @@ const reducer = (state, action) => {
   if (action.type === UPDATE_USER_BEGIN) {
     return { ...state, isLoading: true };
   }
+
   if (action.type === UPDATE_USER_SUCCESS) {
     return {
       ...state,
       isLoading: false,
-      user: action.payload.user,
-      userLocation: action.payload.location,
-      jobLocation: action.payload.location,
-      showAlert: true,
+      // user: action.payload.user,
+      // userLocation: action.payload.location,
+      // jobLocation: action.payload.location,
+      showAlert:true,
       alertType: 'success',
       alertText: 'User Profile Updated!',
     };
@@ -320,6 +322,13 @@ const reducer = (state, action) => {
       return{
         ...state,
         isLoading:false
+      }
+     }
+
+     if(action.type===DELETE_ORDERS_APP_CONTEXT){
+      return{
+       ...state,
+       UserOrders:[]
       }
      }
 

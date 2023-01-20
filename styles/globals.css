@@ -1,3 +1,9 @@
+
+/* ALL THE STYLES ARE IN GLOBAL CSS AS THIS PROJECT IS FIRST MADE IN REACT JS SO I HAVE SED THE STYLES OF THE REACT JS TYPICALL CLASS NAME BUT AS I WANT TO LEARN THE NEXT JS SO I JUST COPY THE ALL STYLES FROM THE THAT PREVIOUS PROJECT AND PUT ALL THE CLASSES IN THE GLOBAL CSS AND AS I AM LEARNING THE TAILWAND CSS IN THIS PROJECT SO I HAVE USE THE TAILWAND CSS AS WELL SO CSS AS A WHOLE IS SO MWSSY I HAVE USE THE NEXT JS CSS METHODS LIKE THIS FILE AND USE THE CSS CLASS METHODS IN THE GLOBAL CSS AND USED TAILWAND CSS AND IN-LINE CSS AS WELL */
+
+
+
+/* Tailwand Configuration */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,16 +13,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
 }
 
 /* fonts */
-@import url('https://fonts.googleapis.com/css2?family=Alkalami&family=Cedarville+Cursive&family=Cormorant+Garamond:wght@300&family=Open+Sans:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Roboto+Condensed:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Roboto+Condensed:wght@400;700&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Roboto+Condensed:wght@400;700&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Alkalami&family=Cedarville+Cursive&family=Cormorant+Garamond:wght@300&family=Handlee&family=Open+Sans:wght@300&family=Oswald&family=Roboto&family=Roboto+Mono:wght@300&family=Rubik+Bubbles&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Arima:wght@100&family=Cormorant+Garamond:wght@300&family=Cormorant+Upright:wght@300&family=Lato&family=Roboto+Flex:opsz,wght@8..144,200&display=swap');
 
@@ -609,11 +610,8 @@ transition: .4s ease;
 }
 
 .small-screen-nav-center li a{
-  font-family: 'Roboto Flex', sans-serif;
-  /* padding: 40px 20px; */
   margin-bottom: 50px;
-  text-decoration: none;
-  list-style-type: none;
+  display: flex;
 }
 
 .small-nav-end{
@@ -1271,3 +1269,18 @@ box-shadow: 2px 2px 2px aliceblue;
 background-color: brown;
 }
 
+@media screen and (max-width:900px) {
+  .Register-Google{
+    flex-direction: column;
+  }
+}
+
+
+@media screen and (max-width:700px) {
+  .Testimonial-Card{
+    width: 90%;
+  }
+  .User-Image-Card{
+    flex-direction: column;
+  }
+}

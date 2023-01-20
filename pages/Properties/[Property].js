@@ -110,7 +110,7 @@ const Property = (props) => {
         </div>
 
     </div> 
-        <Footer/> 
+        {/* <Footer/>  */}
     </div>
   )
 }

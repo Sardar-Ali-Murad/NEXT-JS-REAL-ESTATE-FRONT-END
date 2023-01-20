@@ -46,7 +46,8 @@ import {
   FORGET_PASSWORD_BEGIN,
 
   STRIP_LOADING_BEGIN,
-  STRIP_LOADING_END
+  STRIP_LOADING_END,
+  DELETE_ORDERS_APP_CONTEXT
 } from './actions'
 
 
@@ -142,44 +143,47 @@ const AppProvider = ({ children }) => {
     dispatch({ type: LOGOUT_USER });
   };
 
+  
+  
+  
+    const getCurrentUser = async () => {
+      dispatch({ type: GET_CURRENT_USER_BEGIN });
+      try {
+        const { data } = await axios.get('https://al-kabeer-real.onrender.com/api/v1/auth/getCurrentUser',  { withCredentials: true });
+        const { user, location } = data;
+  
+        dispatch({
+          type: GET_CURRENT_USER_SUCCESS,
+          payload: { user, location },
+        });
+      } catch (error) {
+        // if (error.response.status === 401) return;
+        // logoutUser();
+      }
+    };
 
+    
   const updateUser = async (currentUser) => {
     dispatch({ type: UPDATE_USER_BEGIN });
     try {
       const { data } = await axios.patch('https://al-kabeer-real.onrender.com/api/v1/auth/updateUser', currentUser,{ withCredentials: true });
-      const { user, location } = data;
+      // const { user, location } = data;
 
 
       dispatch({
         type: UPDATE_USER_SUCCESS,
-        payload: { user, location },
+        // payload: { user, location },
       });
+      getCurrentUser()
     } catch (error) {
-      if (error.response.status !== 401) {
+      // if (error.response.status !== 401) {
         dispatch({
           type: UPDATE_USER_ERROR,
           payload: { msg: error.response.data.msg },
         });
-      }
+      // }
     }
     clearAlert();
-  };
-
-
-  const getCurrentUser = async () => {
-    dispatch({ type: GET_CURRENT_USER_BEGIN });
-    try {
-      const { data } = await axios.get('https://al-kabeer-real.onrender.com/api/v1/auth/getCurrentUser',  { withCredentials: true });
-      const { user, location } = data;
-
-      dispatch({
-        type: GET_CURRENT_USER_SUCCESS,
-        payload: { user, location },
-      });
-    } catch (error) {
-      // if (error.response.status === 401) return;
-      // logoutUser();
-    }
   };
   
   
@@ -313,7 +317,6 @@ const single=async (id)=>{
     }
     clearAlert()
     UOrders() 
-
   }
   
   
@@ -387,6 +390,10 @@ const single=async (id)=>{
     clearAlert()
   }
 
+  function deleteOrderFromAppContext(){
+    dispatch({type:DELETE_ORDERS_APP_CONTEXT})
+  }
+
 
 
 
@@ -421,7 +428,8 @@ const single=async (id)=>{
        stripe,
        Google,
        forgetPassword,
-       resetPasswordFun
+       resetPasswordFun,
+       deleteOrderFromAppContext
       }}
     >
       {children}

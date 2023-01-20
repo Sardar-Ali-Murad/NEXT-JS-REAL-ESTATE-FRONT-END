@@ -1,13 +1,15 @@
 import React from 'react';
-import { GoogleLogin } from 'react-google-login';
+import {GoogleLogin}  from "@react-oauth/google"
 import axios from "axios"
-// import { gapi } from "gapi-script";
 import { useAppContext } from '../context/appContext';
 // import { gapi } from "gapi-script";
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
+
+// Gapi Cases the problems sometime and react-google-login is depreciated so we are not using it 
 
 export default function Landing() { 
-  let { Google,user}=useAppContext()
+  let { Google}=useAppContext()
 
 
   // gapi.load("client:auth2", () => {
@@ -20,7 +22,7 @@ export default function Landing() {
  
    const responseGoogleSuccess = async (response) => {
        try {
-       let {data}=await axios.post("https://al-kabeer-real.onrender.com/api/v1/googleLogin",{idToken:response.tokenId},{withCredentials:true})
+       let {data}=await axios.post("https://al-kabeer-real.onrender.com/api/v1/googleLogin",{idToken:response.credential},{withCredentials:true})
         Google({user:data.user,location:data.location})
        } catch (error) {
          console.log(error.response.data.msg);
@@ -34,13 +36,15 @@ export default function Landing() {
    
   return (
     <div className="App">
+          <GoogleOAuthProvider clientId="705164632277-vhv4q8ki9tntsbiv8n0do8l9rdbd1knk.apps.googleusercontent.com">
      <GoogleLogin
-    clientId="705164632277-vhv4q8ki9tntsbiv8n0do8l9rdbd1knk.apps.googleusercontent.com"
+    // clientId="705164632277-vhv4q8ki9tntsbiv8n0do8l9rdbd1knk.apps.googleusercontent.com"
     buttonText="Login with google"
     onSuccess={responseGoogleSuccess}
     onFailure={responseGoogleError}
     cookiePolicy={'single_host_origin'}
-  />
+    />
+    </GoogleOAuthProvider>
     </div>
   );
 }

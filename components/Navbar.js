@@ -12,11 +12,8 @@ import Image from "next/image"
 const Navbar = () => {
     let router=useRouter()
     let [ham,setHam]=React.useState(true)
-    let {Orders,UserOrders,user}=useAppContext()
-    // React.useEffect(()=>{
-    //    Orders()
-    // },[UserOrders])
-
+    let {UserOrders,user}=useAppContext()
+   
     let num=UserOrders.reduce((final,current)=>{
         final+=current?.quantity
         return final
@@ -29,6 +26,8 @@ const Navbar = () => {
         else{
             router.push("/user")
         }
+
+        setHam(true)
     }
 
   
@@ -76,21 +75,20 @@ const Navbar = () => {
     {/* small screen nav starts */}
       <div className={`small-screen-main ${!ham?"small-screen-nav-active":""}`}>
          <div className='small-nav-front'>
-            <h3>comfy Sloth</h3>
+            <h3 className="label" style={{color:"black"}}>AK BUILDERS</h3>
             <ImCross className='cross' onClick={()=>setHam(true)}/>
          </div>
 
          <div className='small-screen-nav-center div-center-80'>
-            <li> <Link className='link-font' style={{marginBottom:"30px"}} href="/" onClick={()=>setHam(true)}>Home</Link></li>
-            <li> <Link href="/about"  className='link-font' style={{marginBottom:"30px"}} onClick={()=>setHam(true)}>About</Link></li>
-            <li> <Link href="/Properties"   className='link-font'  style={{marginBottom:"30px",listStyle:"none"}} onClick={()=>setHam(true)}>Property</Link></li>     
+            <li> <Link className='label fancy-link text-black' style={{marginBottom:"30px",color:"black"}} href="/" onClick={()=>setHam(true)}>Home</Link></li>
+            <li> <Link href="/about"  className='label fancy-link' style={{marginBottom:"30px",color:"black"}} onClick={()=>setHam(true)}>About</Link></li>
+            <li> <Link href="/Properties"   className='label fancy-link'  style={{marginBottom:"30px",listStyle:"none",color:"black"}} onClick={()=>setHam(true)}>Property</Link></li>     
          </div>
 
          <div className='small-nav-end'>
             <Link href="/Cart" style={{color:"black"}} onClick={()=>setHam(true)}>
             <div className='nav-flex cart-rel'>
-                {/* <h6>Cart</h6>  */}
-                 <BsCart className='nav-icon'/>
+                 <BsCart className='nav-icon' />
                  <h2 className='cart-no'>{num}</h2>
             </div>
             </Link>

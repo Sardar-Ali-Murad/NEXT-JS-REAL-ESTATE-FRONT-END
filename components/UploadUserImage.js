@@ -21,10 +21,10 @@ const UploadUserImage = () => {
       },[props.userImage])
 
   return (
-    <Card className='div-center-80 p-[20px] flex justify-between'>
+    <Card className='div-center-80 p-[20px] flex justify-between User-Image-Card'>
         <div>
 
-      <h2>Change Image</h2>
+      {/* <h2>Change Image</h2> */}
       <div class="form-row">
         <input type="file" className='form-font' id="image" accept="image/*" onChange={handleimage} />
       </div>

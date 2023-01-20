@@ -1,11 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
 import axios from "axios"
+import {useAppContext} from "../context/appContext"
 const orderSuccess = () => {
+    let {deleteOrderFromAppContext}=useAppContext()
       React.useEffect(()=>{
        const start=async ()=>{
         try {
-            await axios.delete("https://al-kabeer-real.onrender.com/api/v1/Orders/deleteAll")
+            await axios.delete("https://al-kabeer-real.onrender.com/api/v1/Orders/deleteAll",{withCredentials:true})
+            deleteOrderFromAppContext()
         } catch (error) {
             console.log(error)
         }
